@@ -43,27 +43,27 @@ public class TextAnalyzer {
     }
 
     private static List<String> getWordsWithoutStopWords(List<String> words, String[] stopWords) {
-        List<String> firstList = new ArrayList<>();
+        List<String> newList = new ArrayList<>();
         for (String word : words) {
-            firstList.add(word.toLowerCase());
+            newList.add(word.toLowerCase());
         }
-        List<String> secondList = new ArrayList<>();
+        List<String> stopWordsList = new ArrayList<>();
         for (String word : stopWords) {
-            secondList.add(word.toLowerCase());
+            stopWordsList.add(word.toLowerCase());
         }
-        firstList.removeAll(secondList);
+        newList.removeAll(stopWordsList);
 
-        return firstList;
+        return newList;
     }
 
     private static List<String> getWordsStartingWithCapitalLetter(List<String> words) {
-        List<String> capitalList = new ArrayList<>();
+        List<String> capitalLetterList = new ArrayList<>();
         for (String word : words) {
             if (Character.isUpperCase(word.charAt(0))) {
-                capitalList.add(word);
+                capitalLetterList.add(word);
             }
         }
-        return capitalList;
+        return capitalLetterList;
     }
 
     private static int calculateNumberOfChars(List<String> words) {
